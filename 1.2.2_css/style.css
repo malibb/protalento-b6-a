@@ -9,7 +9,11 @@
 }
 
 #pollito {
-    border-radius:150px;
+    border-radius: 150px;
     width: 200px;
     height: 200px;
+    border: red 10px double;
+    margin: 50px 50px;
+    /* margin-top: 200px; */
+    padding: 50px;
 }
