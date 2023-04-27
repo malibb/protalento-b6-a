@@ -1,0 +1,15 @@
+.bg-negro{
+    background-color: black;
+    color:whitesmoke;
+}
+
+.imagen-mediana {
+    width: 100px;
+    height: auto;
+}
+
+#pollito {
+    border-radius:150px;
+    width: 200px;
+    height: 200px;
+}
