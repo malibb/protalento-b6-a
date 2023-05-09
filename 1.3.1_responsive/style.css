@@ -1,0 +1,59 @@
+* {
+ margin: 0px;
+ padding: 0px;
+}
+
+#header{
+    width: 90vw;
+    background-color: black;
+    height: 10rem;
+    margin: auto;
+    padding: 5rem 0.5rem 0 0.5rem;
+}
+
+#titulo{
+    color: white;
+    margin: auto;
+    text-align: center;
+}
+
+#main{
+    background-color: black;
+    margin: auto;
+    padding: 0px 0.5rem;
+}
+
+#dragon {
+    border: 0.5em solid white;
+    width: 280px;
+    display: block;
+}
+
+@media screen and (min-width: 320px) {
+    #main{
+        background-color: red;
+    }
+}
+@media screen and (min-width: 480px) {
+    #main{
+        background-color: blue;
+    }
+}
+@media screen and (min-width: 768px) {
+    #main{
+        background-color: green;
+        width: 90vw;
+    }
+
+    #dragon{
+        width: 70vw;
+    }
+}
+@media screen and (min-width: 1024px) {
+    #main{
+        background-color: saddlebrown;
+    }
+    #dragon{
+        width: 750px;
+    }
+}

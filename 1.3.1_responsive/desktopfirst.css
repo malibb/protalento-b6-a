@@ -1,0 +1,35 @@
+#header{
+    width: 90vw;
+    background-color: black;
+    height: 10rem;
+    margin: auto;
+    padding: 1em;
+}
+
+#titulo{
+    color: white;
+    margin: auto;
+    text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+ #header {
+    background-color: blue;
+ }
+}
+@media screen and (max-width: 768px) {
+    #header{
+        background-color: green;
+     }
+}
+@media screen and (max-width: 480px) {
+    #header{
+        background-color: red;
+        padding-top: 5rem;
+    }
+}
+@media screen and (max-width: 320px) {
+    #header{
+        background-color: saddlebrown;
+     }
+}
