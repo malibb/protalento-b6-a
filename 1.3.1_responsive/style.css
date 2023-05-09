@@ -1,9 +1,9 @@
 * {
- margin: 0px;
- padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
-#header{
+#header {
     width: 90vw;
     background-color: black;
     height: 10rem;
@@ -11,13 +11,13 @@
     padding: 5rem 0.5rem 0 0.5rem;
 }
 
-#titulo{
+#titulo {
     color: white;
     margin: auto;
     text-align: center;
 }
 
-#main{
+#main {
     background-color: black;
     margin: auto;
     padding: 0px 0.5rem;
@@ -30,30 +30,34 @@
 }
 
 @media screen and (min-width: 320px) {
-    #main{
+    #main {
         background-color: red;
     }
 }
+
 @media screen and (min-width: 480px) {
-    #main{
+    #main {
         background-color: blue;
     }
 }
+
 @media screen and (min-width: 768px) {
-    #main{
+    #main {
         background-color: green;
         width: 90vw;
     }
 
-    #dragon{
+    #dragon {
         width: 70vw;
     }
 }
+
 @media screen and (min-width: 1024px) {
-    #main{
+    #main {
         background-color: saddlebrown;
     }
-    #dragon{
+
+    #dragon {
         width: 750px;
     }
 }
