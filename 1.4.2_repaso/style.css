@@ -1,0 +1,42 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+div {
+    width: 50%;
+    height: 50vh;
+}
+
+.hoverImg{
+    border: 10px solid darkblue;
+    background-image: url('perrito.jpg');
+}
+
+.hoverImg:hover{
+    background-image: url('gato.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 400px;
+}
+
+.container-flex {
+    display: flex;
+    align-content: space-around;
+    justify-content: space-around;
+    padding: 5px 14px;
+    align-items: center;
+    border-radius: 2em;
+    border: none;
+    box-shadow: 1px 2px 3px gray;
+}
+
+.buttonPencil {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.pencil {
+    fill: gray;
+  }
+  
