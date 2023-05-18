@@ -48,9 +48,11 @@ console.log(typeof "hola");
 console.log(typeof radioCuadrado);
 
 const perrita = {
+    cedula: "2131j23kj2k3j2k1j32j3",
     nombre: "Paloma",
     edad: 16,
     estaViva: false
 };
 
+console.log(perrita.cedula);
 
