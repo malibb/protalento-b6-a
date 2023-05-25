@@ -1,8 +1,16 @@
+// Inserción de código -> DOM -> la página
 document.write("Hola Mundo x2!");
+//    "", '', `` 
+// document.write('<h1 style="color:red;">Bienvenidos a el repaso de JS</h1>');
+document.write('<h1>Bienvenidos a el repaso de JS</h1>');
 
 console.log("Hola Mundo!");
 
-// alert("Hola Mundo x3");
+// console.warn("Hola Mundo!");
+
+// console.error("Error");
+
+alert("Hola Mundo x3");
 
 // String - Cadena de texto -> "palabra o más palabras"
 
