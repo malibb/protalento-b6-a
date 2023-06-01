@@ -86,3 +86,14 @@ let variableNumero = parseFloat(variableText);
 
 let variableEnNumero = parseFloat(prompt("pregunta")); 
 */
+
+
+let clime = prompt(`Esta lloviendo?`);
+
+clime = clime.toLowerCase();
+
+if (clime == `si`){
+    console.log(`Llevar paraguas`);
+} else {
+    console.log(`No llevar paraguas`);
+}
