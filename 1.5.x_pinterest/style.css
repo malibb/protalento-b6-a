@@ -17,3 +17,34 @@
     flex-direction: column;
     width: 20%;
 }
+
+.card-image{
+    position: relative;
+    display: flex;
+}
+
+.card-image:hover img {
+    filter: brightness(90%);
+  }
+img{
+    transition: .3s ease;
+    backface-visibility:hidden;
+}
+.card-image:hover .textos {
+    opacity: 1;
+}
+
+.textos{
+    transform: translate(-114%,78%);
+    opacity: 0;
+}
+
+.miniboton {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    padding: 7px;
+    background-color: white;
+    opacity: .7;
+    align-self: flex-end;
+  }
