@@ -1,0 +1,19 @@
+#gridilla-pinterest{
+    display: grid;
+    grid-template-columns: repeat(5, auto); /* auto auto auto auto auto; */
+    column-gap: 14px;
+}
+
+.img{
+    width: 236px;
+    margin: 40px 0px;
+}
+#flex{
+    display: flex;
+}
+
+#flex-column{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
