@@ -10,5 +10,11 @@
     "npm"
   ],
   "author": "Malinali Becerril @malibb",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "mathjs": "^11.8.2"
+  }
 }
