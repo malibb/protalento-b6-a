@@ -1,0 +1,14 @@
+{
+  "name": "npm-clase",
+  "version": "1.0.0",
+  "description": "Proyecto con npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "Malinali Becerril @malibb",
+  "license": "ISC"
+}
