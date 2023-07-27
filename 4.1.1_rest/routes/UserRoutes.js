@@ -1,27 +1,22 @@
 const express = require('express');
 const router = express.Router();
+// const controllers = require('../controllers');
+const { UserControllers } = require('../controllers');
 
 // users/
-router.get('/', (req, res) => {
-    res.status(200).send(['Usuario Falso','Usuario Falso']);
-  });
+// router.get('/', controllers.UserControllers.getUsers);
+router.get('/', UserControllers.getUsers);
+
+router.get('/:id', UserControllers.getOneUser);
 
   // users/
-router.post('/', (req, res) => {
-    res.send(['Usuario Falso','Usuario Falso']);
-  });
+router.post('/', UserControllers.createUser);
 
 // users/:id
-router.put('/:id', (req, res) => {
-    res.send(['Usuario Falso','Usuario Falso']);
-  });
+router.put('/:id', UserControllers.putUser);
 
-router.patch('/:id', (req, res) => {
-    res.send(['Usuario Falso','Usuario Falso']);
-  });
+router.patch('/:id',  UserControllers.updateUser);
 
-router.delete('/:id', (req, res) => {
-    res.send(['Usuario Falso','Usuario Falso']);
-  });
+router.delete('/:id', UserControllers.deleteUser);
 
 module.exports = router;
