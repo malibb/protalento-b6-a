@@ -5,8 +5,10 @@ const { UserControllers } = require('../controllers');
 
 // users/
 // router.get('/', controllers.UserControllers.getUsers);
+// localhost:3000/users/
 router.get('/', UserControllers.getUsers);
 
+// localhost:3000/users/:id
 router.get('/:id', UserControllers.getOneUser);
 
   // users/
