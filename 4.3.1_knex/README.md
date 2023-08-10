@@ -42,14 +42,21 @@ Si optas por la opción 2, todos los comandos que se mencionaremos más adelante
             - Agregamos un script:
                 ```
                 "scripts": {
+                    "test": "echo \"Error: no test specified\" && exit 1"
+                },
+                ```
+                ```
+                "scripts": {
                     "test": "echo \"Error: no test specified\" && exit 1",
                     "knex": "knex init"
                 },
                 ```
             - Y para ejecutarlo en la terminal correremos:
-                -`npm run nombreDelScript` => `npm run knex`
-                ```
-Migraciones()
+                - `npm run nombreDelScript` => `npm run knex`
+
+
+```
+Migraciones
 
     Una migración es un *control de versiones* de nuestra base de datos, y nos permite crear tablas, establecer relaciones, modificarlas y por supuesto eliminarlas, y todo esto con comandos y de manera programacional en vez de directamente hacerlo en la base de datos.
 
@@ -61,5 +68,77 @@ Este creará el archivo ``knexfile.js`` en la raíz de nuestro proyecto, donde t
     - En preparación: Staging.
     - Producción: Production.
 
+3. Agregar la configuración para desarrollo porque es lo que estamos haciendo ahora:
+
+    ```
+    development: {
+        client: 'postgresql',
+        connection: {
+            host: 'localhost',
+            database: 'sales', 
+            user: 'postgres',
+            password: 'root',
+        },
+        pool: {
+            min: 2,
+            max: 10
+        },
+        migrations: {
+            tableName: 'knex_migrations'
+        }
+    },
+    ```
+
+4. Crear migración.
+
+    -  Se crean migraciones tanto entidades queramos  agregar a nuestra base de datos.
+
+    - Por ejemplo, yo quiero crear la entidad cliente,
+        - `knex migrate:make nombreTabla`
+        - `knex migrate:make cliente`
+
+            - Nota: Si tu hiciste una instalación local para poder correr el comando, requieres agregarlo a un script en el package.json:
+            - Vamos al package.json
+            - Agregamos un script:
+                ```
+                "scripts": {
+                    "test": "echo \"Error: no test specified\" && exit 1",
+                    "knex": "knex init"
+                },
+                ```
+                ```
+                "scripts": {
+                    "test": "echo \"Error: no test specified\" && exit 1",
+                    "knex": "knex init",
+                    "knex_migrations": "knex migrate:make cliente && knex migrate:make producto"
+                },
+                ```
+            - Y para ejecutarlo en la terminal correremos:
+                - `npm run nombreDelScript` => `npm run knex_migrations`
+
+La ejecución de ese comando me permitirá crear un archivo con dos funciones:
+
+- exports.up: Es lo que la migración creará según lo que configuremos (tablas, campos, cambiar tipos de campos, etc.)
+- exports.down: Definimos como revertir la migración realizada por exports.up.
 
 
+5. CRUD a la base de dato de manera programatica.
+
+    Dentro de la función: ``exports.up``:
+
+    ```
+    exports.up = function(knex) {
+    return knex.schema.hasTable('cliente').then((exists) => {
+            if (!exists) {
+                return knex.schema.createTable("cliente", function (table) {
+                table.increments("dni").primary();
+                table.string("nombre").notNullable();
+                table.string("primer_apellido").notNullable();
+                table.boolean("active").notNullable().defaultTo(true);
+                table.timestamp("created_at").defaultTo(knex.fn.now());
+                });
+            }
+        });
+    };
+
+    ```
