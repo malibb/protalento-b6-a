@@ -142,3 +142,32 @@ La ejecución de ese comando me permitirá crear un archivo con dos funciones:
     };
 
     ```
+
+6. Una vez que ya cree el código para crear mi base de datos, me encargaré de ejecutar el comando para cargar las indicaciones en la base de datos, eso creará dos tablas:
+    - knex_migrations
+    - knex_migrations_lock
+
+    - `knex migrate:latest`
+
+        - Nota: Si tu hiciste una instalación local para poder correr el comando, requieres agregarlo a un script en el package.json:
+            - Vamos al package.json
+            - Agregamos un script:
+                    ```
+                    "scripts": {
+                        "test": "echo \"Error: no test specified\" && exit 1",
+                        "knex": "knex init",
+                        "knex_migrations": "knex migrate:make cliente && knex migrate:make producto"
+                    },
+                    ```
+                    ```
+                    "scripts": {
+                        "test": "echo \"Error: no test specified\" && exit 1",
+                        "knex": "knex init",
+                        "knex_migrations": "knex migrate:make cliente && knex migrate:make producto",
+                        "knex_latest": "knex migrate:latest"
+                    },
+                    ```
+                - Y para ejecutarlo en la terminal correremos:
+                    - `npm run nombreDelScript` => `npm run knex_latest`.
+    
+    
