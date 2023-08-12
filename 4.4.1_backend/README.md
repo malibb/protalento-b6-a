@@ -48,3 +48,31 @@
     4. Lo que sigue es crear el arbol de carpetas para mi arquitectura.
     ![Alt text](image.png)
 
+    5. Es empezar llenando loas archivos de rutas con la estrucutra básica.
+
+        ```
+        const express = require('express');
+        const router = express.Router();
+
+        router.get('/', () => {});
+
+        module.exports = router;
+        ```
+    6. Importamos en el index.js de la carpeta `routes` a todos.
+
+    ```
+        const ClientRoutes = require('./ClientRoutes');
+        const ProductRoutes = require('./ProductRoutes');
+        const SaleRoutes = require('./SaleRoutes');
+
+        module.exports = {
+            ClientRoutes,
+            ProductRoutes,
+            SaleRoutes,
+        };
+    ```
+
+    7. Importemoslos a la App.
+    ![Alt text](image-1.png)
+
+    8.
