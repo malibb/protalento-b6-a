@@ -8,7 +8,8 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-
+// Permite parsear el body de las peticiones recibidas a json
+app.use(express.json());
 app.use('/users', Routes.UserRoutes);
 app.use('/api', Routes.ApiRoutes);
 
