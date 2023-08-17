@@ -25,6 +25,8 @@ const insertClient = (req, res) => {
             .insertClient({ first_name, last_name,active })
             .then(results => res.status(201).json(results))
             .catch(error => res.status(500).json(error));
+    }else {
+        res.status(400).send({message: 'Nombre invalido'})
     }
 }
 
