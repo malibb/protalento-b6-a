@@ -139,6 +139,9 @@
         select * from clients
         ```
 
+    10. Si sale un error al probar alguna petición, insertar la siguiente linea en server.js
+     - `server.use(express.json());`
+
 
 
 
