@@ -15,8 +15,13 @@ const insertClients = (req, res) =>  res.status(200).send({
     message:"Clients"
 });
 
+const insertClient = (req, res) =>  res.status(200).send({
+    message:"Clients"
+});
+
 module.exports = {
     getClients,
     getClient,
     insertClients,
+    insertClient,
 };
