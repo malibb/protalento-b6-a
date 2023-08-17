@@ -14,7 +14,7 @@ router.post('/', ClientController.insertClient);
 router.put('/:id', ClientController.updateClient)
 
 // Eliminar un cliente
-router.delete('/:id',ClientController.removeClient)
+router.delete('/:id',ClientController.deleteClient)
 
 // Obtener un solo cliente
 router.get('/:id',ClientController.getClient)
