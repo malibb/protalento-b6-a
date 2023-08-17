@@ -20,10 +20,12 @@ const getClient = (req, res) => {
 const insertClient = (req, res) => {
     const { first_name, last_name,active } = req.body
 
-    clientModel
-        .insertClient({ first_name, last_name,active })
-        .then(results => res.status(201).json(results))
-        .catch(error => res.status(500).json(error));
+    if(first_name !== '' && last_name !== ''){
+        clientModel
+            .insertClient({ first_name, last_name,active })
+            .then(results => res.status(201).json(results))
+            .catch(error => res.status(500).json(error));
+    }
 }
 
 const updateClient = (req, res) => {

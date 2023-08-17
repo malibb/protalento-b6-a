@@ -75,4 +75,5 @@
     7. Importemoslos a la App.
     ![Alt text](image-1.png)
 
-    8.
+    8. Agregamos la configuracion individual de cada controlador y lo haremos por cada entidad
+        
