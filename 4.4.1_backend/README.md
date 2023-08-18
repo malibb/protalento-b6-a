@@ -76,14 +76,13 @@
     ![Alt text](image-1.png)
 
     8. Agregamos la configuracion individual de cada controlador y lo haremos por cada entidad
-        * Revisar el ejemplo con ClientRoutes, ClientController y Client
+        * Revisar el ejemplo con `routes/ClientRoutes`, `controllers/ClientController` y `models/Client`.
 
     9. Crear nuestra primer migración
 
         1. Asegurarse de tener instalado `knex` y `pg`
-        2. Asi deberia de verse las dependencia en package.json
 
-        ```
+        ```json
         "dependencies": {
             "express": "^4.18.2",
             "knex": "^2.5.1",
@@ -91,56 +90,69 @@
         },
         ```
 
-        3. Crear la base de datos `sales` (o el nombre de su base datos) en postgres o por asegurarse que ya existe pero sin ninguna tabla.
-        4. Crear la carpeta migrations y agregar el script `knex_migrate_clients`:
-        ```
-        "scripts": {
-            "test": "echo \"Error: no test specified\" && exit 1",
-            "start": "node server.js",
-            "dev": "nodemon server.js",
-            "knex_migrate_clients":"knex migrate:make clients"
-        },
-        ```
-        * Otra forma para crear una migración sin agregar un nuevo script es utilizar `npx`
-            - `npx knex migrate:make products`
-
-        5. En la carpeta migrations se creará un archivo con la fecha y el nombre de la migración, parecido a lo siguiente: `20230816_clients.js`
-
-        6. Dentro de ese archivo habra dos métodos: `up` y `down`.
-        - En método up se crea la tabla clients
+        2. Crear la base de datos `sales` (o el nombre de su base datos) en postgres o  asegurarse que ya existe pero sin ninguna tabla.
         
-        ```
-        exports.up = function(knex) {
-        return knex.schema.createTable('clients',   (table) => {
-          table.increments('id').primary();
-          table.string('first_name').notNullable();
-          table.string('last_name').notNullable();
-          table.boolean('active').notNullable();
-          table.timestamp('created_at').defaultTo(knex.fn.now());
-        })
-        };
-        ```
+        3. Crear la carpeta `migrations` y agregar el script `knex_migrate_clients`:
+            ```json
+            "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1",
+                "start": "node server.js",
+                "dev": "nodemon server.js",
+                "knex_migrate_clients":"knex migrate:make clients"
+            },
+            ```
+            * Otra forma para crear una migración sin agregar un nuevo script es utilizar `npx`
+                - `npx knex migrate:make products`
 
-        7. Agregar el script `knex_latest`
+        4. En la carpeta migrations se creará un archivo con la fecha y el nombre de la migración, parecido a lo siguiente: `20230816_clients.js`
 
-        ```
-        "scripts": {
-            "test": "echo \"Error: no test specified\" && exit 1",
-            "start": "node server.js",
-            "dev": "nodemon server.js",
-            "knex_migrate_clients":"knex migrate:make clients",
-            "knex_latest":"knex migrate:latest"
-        },
-        ```
+        5. Dentro de ese archivo habra dos métodos: `up` y `down`.
+            - En método `up` se crea la tabla `clients`
+        
+            ```js
+            exports.up = function(knex) {
+            return knex.schema.createTable('clients',   (table) => {
+            table.increments('id').primary();
+            table.string('first_name').notNullable();
+            table.string('last_name').notNullable();
+            table.boolean('active').notNullable();
+            table.timestamp('created_at').defaultTo(knex.fn.now());
+            })
+            };
+            ```
 
-        8. Comprobar en pgadmin que la tabla `clients` existe con al siguente consulta en la base de datos `sales`
+        6. Agregar el script `knex_latest`
 
-        ```sql
-        select * from clients
-        ```
+            ```json
+            "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1",
+                "start": "node server.js",
+                "dev": "nodemon server.js",
+                "knex_migrate_clients":"knex migrate:make clients",
+                "knex_latest":"knex migrate:latest"
+            },
+            ```
 
-    10. Si sale un error al probar alguna petición, insertar la siguiente linea en server.js
-     - `server.use(express.json());`
+        7. Comprobar en pgadmin que la tabla `clients` existe con al siguente consulta en la base de datos `sales`
+
+            ```sql
+            select * from clients
+            ```
+
+    10. Abrir insomnia para crear una Request Collection donde probaremos la API.
+
+        * Agregar un petición HTTP de tipo POST para insertar nuestro primer cliente.
+        * Agregar la dirección `http://localhost:3000/api/v1/clients`
+        * Agregar un body de tipo json con un nuevo cliente:
+            ```json
+            {
+	            "first_name":"Steven",
+                "last_name":"Attara",
+	            "active":true
+            }
+            ```
+        * En caso de que recibas como respuesta un error 505 con un mensaje que empiece por `TypeError: Cannot destructure property...`, agrega la siguiente linea en el archivo server.js: 
+            - `server.use(express.json());`
 
 
 
