@@ -6,10 +6,25 @@ const PORT = 3000
 
 const server = express()
 
-const validateJWT = (req, res, next) => {
-  const accessToken = req.get('authorization')
+const songs = [
+  {
+    title: 'Infinity repeating',
+    artist: 'Daft Punk'
+  },
+  {
+    title: 'Bohemian Rhapsody',
+    artist: 'Queen',
+  },
+  {
+    title:'Bones',
+    artist: 'Imagine Dragons'
+  }
+]
 
-  console.log(accessToken)
+const validateJWT = (req, res, next) => {
+  const authHeader = req.get('authorization')
+
+  const accessToken = authHeader.split(' ')[1]
 
   jwt.verify(accessToken, SECRET_KEY, (error, decode) => {
     if(error) {
@@ -31,21 +46,6 @@ server.use('/auth',(req,res) => {
 })
 
 server.use('/songs',validateJWT,(req,res) => {
-  const songs = [
-    {
-      title: 'Infinity repeating',
-      artist: 'Daft Punk'
-    },
-    {
-      title: 'Bohemian Rhapsody',
-      artist: 'Queen',
-    },
-    {
-      title:'Bones',
-      artist: 'Imagine Dragons'
-    }
-  ]
-
   res.status(201).send({songs})
 })
 
