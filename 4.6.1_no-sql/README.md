@@ -66,5 +66,25 @@ const mongooseConnect = async () => {
 mongooseConnect()
 ```
 
+7. Agregar las rutas para la entidad Task
 
+  * Crear la carpeta router y dentro crear el archivo TaskRoutes, con las rutas básicas para:
+    * Obtener todas la tareas
+    * Agregar una nueva
+    * Actualizar una tarea
+    * Eliminar una tarea
+    * Obtener una tarea
 
+  * En el archivo server.js importar TaskRoute y utilizarlo en la ruta `/api/v1/tasks`
+
+  ```js
+  const TaskRoutes = require('./routes/TaskRoutes')
+
+  // El resto del código
+
+  server.use(express.json())
+
+  server.use('/api/v1/tasks', TaskRoutes)
+
+  // demás código
+  ```
