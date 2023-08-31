@@ -41,6 +41,30 @@ server.listen(PORT, () => {
 })
 ```
 
+5. Agregar los scripts `start` y `dev`
+
+```json
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+```
+
+6. Conectar con el cluster de Atlas a traves mongoose en el archivo `server.js`
+
+```js
+const mongooseConnect = async () => {
+  try{
+    await mongoose.connect('mongodb+srv://guirdo:JrJI0klpEOwRf7yL@cluster0.2irewjx.mongodb.net/')
+    console.log('Conexión exitosa')
+  }catch(error){
+    console.error(error)
+  }
+}
+
+mongooseConnect()
+```
 
 
 
