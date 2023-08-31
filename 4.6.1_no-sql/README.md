@@ -88,3 +88,8 @@ mongooseConnect()
 
   // demás código
   ```
+
+8. Agregar el controlador para Task.
+ * Crea la carpeta controllers y dentro crea el archivo TaskController
+
+
