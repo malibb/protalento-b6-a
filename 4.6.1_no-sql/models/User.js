@@ -26,7 +26,11 @@ const validateUser = async (email, password) => {
       name: user.name
     }
   } else {
-    return false
+    return null
   }
 
+}
+
+module.exports = {
+  validateUser
 }
