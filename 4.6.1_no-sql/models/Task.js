@@ -25,7 +25,7 @@ const getAll = async () => {
 }
 
 const insertTask = async (task) => {
-  return await Task.insertOne(task)
+  return await Task.create(task)
 }
 
 const updateTask = async (id, newTask) => {
@@ -40,7 +40,7 @@ const updateTask = async (id, newTask) => {
 }
 
 const removeTask = async (id) => {
-  return await Task.deleteOne({id: id})
+  return await Task.deleteOne({_id: id})
 }
 
 const getTask = async (id) => {
