@@ -6,7 +6,7 @@
 
 console.log('Script')
 
-fetch('pokemons.json', {
+fetch('pokemons.json?api_key=2432j324jk32j4l23k4j23kl4jll32lkj', {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     // mode: 'no-cors', // no-cors, *cors, same-origin
     // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -26,6 +26,7 @@ fetch('pokemons.json', {
     })
   .then(data => {
     console.log(data);
-
+    // get element
+    // crear elemento con datos
     document.write(data);
 });
