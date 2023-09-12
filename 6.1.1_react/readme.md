@@ -259,4 +259,37 @@ function MyButton() {
 ```
 Al crear el estado, siempre se manda como parámetro el valor inicial.
 
-useState: el estado actual (count) y la función que te permite actualizarlo ( setCount). 
+useState: el estado actual (count) y la función que te permite actualizarlo ( setCount).
+
+Podriamos mandar información entre componentes.
+
+```JS
+
+import { useState } from 'react';
+
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton inicio="1" />
+      <MyButton inicio={1 + 4} />
+    </div>
+  );
+}
+
+function MyButton({ inicio }) {
+  const [count, setCount] = useState(inicio);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+
+
+```
