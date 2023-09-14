@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
 
-import Card from './components/card'
-const cartas = [{ title: 'Mi carta', subtitle: 'subtitulo de mi carta', text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, rerum? Soluta, cupiditate necessitatibus eum, quisquam deserunt culpa, dolor molestias nulla facere dolorum numquam? Ipsum maxime commodi adipisci iste laboriosam qui!' },
+import Cards from './components/Cards'
+const cartas = [{ key: '13kj', title: 'Mi carta', subtitle: 'subtitulo de mi carta', text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, rerum? Soluta, cupiditate necessitatibus eum, quisquam deserunt culpa, dolor molestias nulla facere dolorum numquam? Ipsum maxime commodi adipisci iste laboriosam qui!' },
 { key: '12st', title: 'Mi carta', subtitle: 'subtitulo de mi carta', text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, rerum? Soluta, cupiditate necessitatibus eum, quisquam deserunt culpa, dolor molestias nulla facere dolorum numquam? Ipsum maxime commodi adipisci iste laboriosam qui!' },
 { key: '12sk',title: 'Mi carta', subtitle: 'subtitulo de mi carta', text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, rerum? Soluta, cupiditate necessitatibus eum, quisquam deserunt culpa, dolor molestias nulla facere dolorum numquam? Ipsum maxime commodi adipisci iste laboriosam qui!' },
 { key: '12ygjls',title: 'Mi carta', subtitle: 'subtitulo de mi carta', text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, rerum? Soluta, cupiditate necessitatibus eum, quisquam deserunt culpa, dolor molestias nulla facere dolorum numquam? Ipsum maxime commodi adipisci iste laboriosam qui!' },
@@ -17,21 +17,21 @@ const cartas = [{ title: 'Mi carta', subtitle: 'subtitulo de mi carta', text: 'L
 { key: '12es',title: 'Mi carta', subtitle: 'subtitulo de mi carta', text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, rerum? Soluta, cupiditate necessitatibus eum, quisquam deserunt culpa, dolor molestias nulla facere dolorum numquam? Ipsum maxime commodi adipisci iste laboriosam qui!' },
 { key: '12ds',title: 'Mi carta', subtitle: 'subtitulo de mi carta', text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, rerum? Soluta, cupiditate necessitatibus eum, quisquam deserunt culpa, dolor molestias nulla facere dolorum numquam? Ipsum maxime commodi adipisci iste laboriosam qui!' },
 { key: '12xs',title: 'Mi carta', subtitle: 'subtitulo de mi carta', text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, rerum? Soluta, cupiditate necessitatibus eum, quisquam deserunt culpa, dolor molestias nulla facere dolorum numquam? Ipsum maxime commodi adipisci iste laboriosam qui!' },
-]  
+]
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    console.log('me ejecuté')
+    // pedir los datos de las carta
+    if (!cartas) setCartas([resultadoDeLaPeticion]) 
+
+  }, [textBuscador]);
   return (
     <>
       <h1>Vite + React</h1>
-      <div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
       <div className='flex-box'>
-      {cartas.map((carta) =>  <Card key={carta.key} title={carta.title} subtitle={carta.subtitle} text={carta.text} />)}
+        <Cards title={'Mis cartas'} cartasInfo={cartas}/>
       </div>
     </>
   )
