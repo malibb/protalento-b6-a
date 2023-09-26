@@ -20,7 +20,7 @@ export default function Card({url}) {
         });
   }, []);
 
-    return <div className="column is-two-fifths">
+    return <div className="column">
         <div className="card">
     <div className="card-image">
       <figure className="image is-4by3">
